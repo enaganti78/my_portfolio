@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enaganti Shashidhar — Product Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ledger:#F5F1E6;
+    --ledger-line:#D9D0BC;
+    --ink:#1B2A41;
+    --ink-soft:#5A6472;
+    --brass:#A8834F;
+    --emerald:#2F6F4E;
+    --card:#FBF9F3;
+    --serif:'Source Serif 4',serif;
+    --mono:'IBM Plex Mono',monospace;
+    --sans:'Inter',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--ledger);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--brass);color:#fff;}
+  :focus-visible{outline:2px solid var(--brass);outline-offset:3px;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:16px;height:1px;background:var(--brass);}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(245,241,230,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--ledger-line);}
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .logo{font-family:var(--serif);font-weight:600;font-size:18px;letter-spacing:.01em;}
+  .logo span{color:var(--brass);}
+  .navlinks{display:flex;gap:30px;font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;}
+  .navlinks a{position:relative;padding:4px 0;}
+  .navlinks a:hover{color:var(--ink);}
+  .navlinks a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--brass);transition:width .2s;}
+  .navlinks a:hover::after{width:100%;}
+  .nav-cta{font-family:var(--mono);font-size:12.5px;border:1px solid var(--ink);padding:8px 16px;text-transform:uppercase;letter-spacing:.06em;transition:background .15s,color .15s;}
+  .nav-cta:hover{background:var(--ink);color:var(--ledger);}
+  @media(max-width:760px){.navlinks{display:none;}}
+
+  /* HERO — fact sheet */
+  .hero{padding:80px 0 0;}
+  .hero-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px;}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(36px,5.4vw,58px);line-height:1.08;letter-spacing:-.01em;max-width:720px;}
+  .hero .role{font-family:var(--mono);font-size:13px;color:var(--brass);text-transform:uppercase;letter-spacing:.1em;margin-top:14px;}
+  .hero .dek{margin-top:22px;max-width:600px;color:var(--ink-soft);font-size:16.5px;}
+
+  .hero-cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .btn{font-family:var(--mono);font-size:12.5px;padding:13px 22px;display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.06em;}
+  .btn-primary{background:var(--ink);color:var(--ledger);}
+  .btn-primary:hover{background:var(--emerald);}
+  .btn-ghost{border:1px solid var(--ledger-line);color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--ink);}
+
+  /* fact-sheet stat strip */
+  .factsheet{margin-top:56px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ledger-line);}
+  .fs-row{display:grid;grid-template-columns:repeat(4,1fr);}
+  .fs-cell{padding:24px 20px;border-right:1px solid var(--ledger-line);}
+  .fs-cell:last-child{border-right:none;}
+  .fs-num{font-family:var(--mono);font-weight:600;font-size:clamp(22px,2.6vw,30px);color:var(--emerald);}
+  .fs-label{font-family:var(--mono);font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.05em;margin-top:6px;}
+  @media(max-width:760px){.fs-row{grid-template-columns:repeat(2,1fr);}.fs-cell:nth-child(2){border-right:none;}}
+
+  section{padding:96px 0;border-bottom:1px solid var(--ledger-line);}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.6vw,34px);letter-spacing:-.005em;}
+  .section-head{margin-bottom:48px;}
+  .section-head p{color:var(--ink-soft);max-width:540px;margin-top:10px;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;}
+  .about-grid p{margin-bottom:16px;color:var(--ink-soft);font-size:16px;max-width:56ch;}
+  .about-grid p strong{color:var(--ink);font-weight:600;}
+  .specs{font-family:var(--mono);font-size:13px;border-top:1px solid var(--ledger-line);}
+  .spec-row{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--ledger-line);gap:16px;}
+  .spec-row span:first-child{color:var(--ink-soft);white-space:nowrap;}
+  .spec-row span:last-child{text-align:right;}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:36px;}}
+
+  /* EXPERIENCE — annual report ledger */
+  .ledger{border-top:1px solid var(--ink);}
+  .entry{padding:32px 0;border-bottom:1px solid var(--ledger-line);}
+  .entry-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;}
+  .entry-title{font-family:var(--serif);font-weight:600;font-size:21px;}
+  .entry-org{font-family:var(--mono);font-size:12.5px;color:var(--brass);margin-top:4px;text-transform:uppercase;letter-spacing:.05em;}
+  .entry-dates{font-family:var(--mono);font-size:12px;color:var(--ink-soft);white-space:nowrap;}
+  .entry ul{margin-top:16px;list-style:none;}
+  .entry li{font-size:14.5px;color:var(--ink-soft);margin-bottom:9px;padding-left:20px;position:relative;}
+  .entry li::before{content:"—";position:absolute;left:0;color:var(--brass);}
+  .entry li b{color:var(--ink);font-weight:600;}
+
+  /* CASE STUDIES */
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--ledger-line);border:1px solid var(--ledger-line);}
+  .card{background:var(--card);padding:32px;}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;}
+  .card-tag{font-family:var(--mono);font-size:10.5px;color:var(--brass);text-transform:uppercase;letter-spacing:.08em;}
+  .card h3{font-family:var(--serif);font-size:21px;font-weight:600;margin-bottom:10px;}
+  .card p{color:var(--ink-soft);font-size:14.5px;margin-bottom:18px;}
+  .metric-row{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:18px;}
+  .metric{font-family:var(--mono);}
+  .metric b{display:block;color:var(--emerald);font-size:17px;}
+  .metric span{font-size:10.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;}
+  .card a.readmore{font-family:var(--mono);font-size:12.5px;border-bottom:1px solid var(--ink);padding-bottom:2px;text-transform:uppercase;letter-spacing:.05em;}
+  @media(max-width:760px){.cards{grid-template-columns:1fr;}}
+
+  /* BLOG */
+  .postlist{border-top:1px solid var(--ink);}
+  .post{display:grid;grid-template-columns:110px 1fr auto;gap:24px;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--ledger-line);}
+  .post-date{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);}
+  .post h3{font-family:var(--serif);font-size:18px;font-weight:600;}
+  .post p{color:var(--ink-soft);font-size:13.5px;margin-top:4px;}
+  .post-arrow{font-family:var(--mono);color:var(--ink-soft);transition:transform .15s,color .15s;}
+  .post:hover .post-arrow{transform:translateX(4px);color:var(--emerald);}
+  @media(max-width:760px){.post{grid-template-columns:1fr;gap:6px;}}
+
+  footer{padding:80px 0 40px;}
+  .status-bar{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);display:flex;align-items:center;gap:8px;margin-bottom:28px;text-transform:uppercase;letter-spacing:.05em;}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--emerald);}
+  footer h2{max-width:620px;}
+  .contact-links{display:flex;gap:28px;margin-top:32px;flex-wrap:wrap;font-family:var(--mono);font-size:13.5px;}
+  .contact-links a{border-bottom:1px solid var(--ledger-line);padding-bottom:3px;}
+  .contact-links a:hover{border-color:var(--ink);}
+  .foot-meta{margin-top:64px;padding-top:24px;border-top:1px solid var(--ledger-line);display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);flex-wrap:wrap;gap:8px;text-transform:uppercase;letter-spacing:.04em;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">ES <span>·</span></div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#work">Case Studies</a>
+      <a href="#blog">Writing</a>
+    </div>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" style="border-bottom:1px solid var(--ledger-line);">
+  <div class="wrap">
+    <div class="hero-top">
+      <div>
+        <div class="eyebrow">Enaganti Shashidhar</div>
+        <h1>Product leadership for fintech, wealth management, and B2B SaaS.</h1>
+        <div class="role">Product Manager · 23 years, financial services &amp; digital products</div>
+        <p class="dek">Nine years of end-to-end ownership of live SaaS and fintech platforms, built on a foundation of 14 years inside banking, wealth management, and insurance — including managing an INR 150 crore HNI portfolio as Cluster Head at Axis Bank.</p>
+        <div class="hero-cta">
+          <a href="/resume.pdf" class="btn btn-primary">Download résumé</a>
+          <a href="#work" class="btn btn-ghost">View case studies →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="factsheet">
+    <div class="wrap fs-row" style="padding:0;">
+      <div class="fs-cell"><div class="fs-num">25–30%</div><div class="fs-label">Annual product-led growth</div></div>
+      <div class="fs-cell"><div class="fs-num">40%</div><div class="fs-label">Recurring revenue growth</div></div>
+      <div class="fs-cell"><div class="fs-num">25%</div><div class="fs-label">Client adoption increase</div></div>
+      <div class="fs-cell"><div class="fs-num">&lt;10%</div><div class="fs-label">Customer churn maintained</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow" style="margin-bottom:20px;">About</div>
+      <p><strong>I've sat on both sides of the product</strong> — building the SaaS platform, and managing the HNI portfolio that a platform like it would serve. That dual vantage shapes how I prioritize: what actually protects revenue and trust in a regulated environment, not just what ships fastest.</p>
+      <p>At AJR Infosystems, I owned two live platforms — Banter, a B2B cloud communications SaaS, and GoRummy — end to end: strategy, discovery, backlog, delivery, and post-launch iteration, leading a 9-person cross-functional team.</p>
+      <p>Before product, 14 years across wealth management, insurance, and independent financial advisory gave me a working fluency in compliance, risk, and client trust — the constraints that fintech products actually have to be built around.</p>
+    </div>
+    <div class="specs">
+      <div class="spec-row"><span>Location</span><span>Hyderabad, India</span></div>
+      <div class="spec-row"><span>Focus</span><span>Fintech · Wealth Mgmt · B2B SaaS</span></div>
+      <div class="spec-row"><span>Current</span><span>Product Manager, AJR Infosystems</span></div>
+      <div class="spec-row"><span>Prior domain</span><span>Axis Bank · AEGON Religare · ICICI Prudential</span></div>
+      <div class="spec-row"><span>Certification</span><span>Product Mgmt — ISB, 2023</span></div>
+      <div class="spec-row"><span>Education</span><span>MBA, Bharathiar University</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Experience</div>
+      <h2>Track record</h2>
+      <p>23 years, read the way a track record should be — by what changed because of the work.</p>
+    </div>
+
+    <div class="ledger">
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <div class="entry-title">Product Manager</div>
+            <div class="entry-org">AJR Infosystems — Banter (B2B SaaS) &amp; GoRummy</div>
+          </div>
+          <div class="entry-dates">Aug 2016 – Oct 2025</div>
+        </div>
+        <ul>
+          <li>Owned the complete product lifecycle across two live SaaS platforms — vision, roadmap, discovery, delivery, and post-launch improvement</li>
+          <li>Drove <b>25–30% annual product-led growth</b> and <b>40% recurring-revenue growth</b>, while holding churn under 10%</li>
+          <li>Led a 9-member cross-functional team across Engineering, UX, and QA; moved release cadence from quarterly to monthly</li>
+          <li>Designed a secure self-service customer portal covering auth, billing, permissions, and role-based access</li>
+          <li>Led integrations with Twilio, Bandwidth, Zoho eSign, and CRM systems for provisioning and digital workflows</li>
+          <li>Delivered 10DLC and STIR/SHAKEN compliance work, maintaining 100% audit adherence in a regulated environment</li>
+          <li>Built and launched a white-label partner programme for GoRummy — 3 partner implementations, a new B2B revenue line</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <div class="entry-title">Independent Financial Advisor</div>
+            <div class="entry-org">Self-Employed</div>
+          </div>
+          <div class="entry-dates">Sep 2012 – Jul 2016</div>
+        </div>
+        <ul>
+          <li>Built an advisory practice from the ground up across equities, mutual funds, and derivatives</li>
+          <li>Analyzed market cycles and client risk objectives to develop portfolio strategy</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <div class="entry-title">Senior Manager, Wealth Management</div>
+            <div class="entry-org">Axis Bank Ltd. — Cluster Head, Hyderabad</div>
+          </div>
+          <div class="entry-dates">Jan 2012 – Sep 2012</div>
+        </div>
+        <ul>
+          <li>Responsible for financial planning and investment strategy for HNI clients — an <b>INR 150 crore</b> portfolio</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <div class="entry-title">Senior Territory Manager, PWM Channel</div>
+            <div class="entry-org">AEGON Religare Life</div>
+          </div>
+          <div class="entry-dates">Jul 2009 – Jan 2012</div>
+        </div>
+        <ul>
+          <li>Led a team of 8 across a wealth-linked insurance distribution channel</li>
+          <li>Ranked Top 3 nationally for two consecutive years; highest business contribution for three</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <div class="entry-title">Corporate Relations &amp; Underwriting</div>
+            <div class="entry-org">ICICI Prudential, AVIVA, TATA-AIG, FHPL</div>
+          </div>
+          <div class="entry-dates">Feb 2002 – Jun 2009</div>
+        </div>
+        <ul>
+          <li>Managed corporate relationships, underwriting, and growth initiatives across regulated insurers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Case Studies</div>
+      <h2>Selected work</h2>
+      <p>Two platforms taken from idea to sustained growth.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-top"><span class="card-tag">B2B Cloud Communications SaaS</span></div>
+        <h3>Banter</h3>
+        <p>End-to-end ownership of a live communications platform — roadmap, self-service customer portal, carrier integrations (Twilio, Bandwidth), and compliance delivery (10DLC, STIR/SHAKEN) inside a regulated environment.</p>
+        <div class="metric-row">
+          <div class="metric"><b>25–30%</b><span>PLG growth</span></div>
+          <div class="metric"><b>40%</b><span>Recurring rev.</span></div>
+          <div class="metric"><b>100%</b><span>Audit adherence</span></div>
+        </div>
+        <a href="#" class="readmore">Read the case study →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-top"><span class="card-tag">White-Label Partner Programme</span></div>
+        <h3>GoRummy</h3>
+        <p>Built and launched a white-label programme from scratch, opening a new B2B revenue stream and landing the first cohort of partner implementations.</p>
+        <div class="metric-row">
+          <div class="metric"><b>3</b><span>Partner launches</span></div>
+          <div class="metric"><b>New</b><span>Revenue line</span></div>
+        </div>
+        <a href="#" class="readmore">Read the case study →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-top"><span class="card-tag">Wealth Management</span></div>
+        <h3>HNI Portfolio Strategy — Axis Bank</h3>
+        <p>As Cluster Head, managed investment strategy for high-net-worth clients across an INR 150 crore portfolio — balancing growth objectives against risk, suitability, and regulation.</p>
+        <div class="metric-row">
+          <div class="metric"><b>₹150 Cr</b><span>AUM managed</span></div>
+        </div>
+        <a href="#" class="readmore">Read the case study →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-top"><span class="card-tag">— add a case study —</span></div>
+        <h3>— next write-up —</h3>
+        <p>Slot for a fourth case study — a specific integration, launch, or turnaround worth telling in detail.</p>
+        <div class="metric-row"><div class="metric"><b>—</b><span>Metric</span></div></div>
+        <a href="#" class="readmore">Read the case study →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="blog">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Writing</div>
+      <h2>Notes on product &amp; fintech</h2>
+      <p>On building regulated products, and what wealth management taught me about trust.</p>
+    </div>
+    <div class="postlist">
+      <a href="#" class="post">
+        <span class="post-date">— date —</span>
+        <div><h3>What HNI advisory taught me about product trust</h3><p>Why the wealth-management client relationship is a product lesson.</p></div>
+        <span class="post-arrow">→</span>
+      </a>
+      <a href="#" class="post">
+        <span class="post-date">— date —</span>
+        <div><h3>Shipping under 10DLC and STIR/SHAKEN</h3><p>Compliance as a product requirement, not a blocker.</p></div>
+        <span class="post-arrow">→</span>
+      </a>
+      <a href="#" class="post">
+        <span class="post-date">— date —</span>
+        <div><h3>Going from quarterly to monthly releases</h3><p>What changed on a 9-person cross-functional team.</p></div>
+        <span class="post-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="status-bar"><span class="dot"></span> Open to Product Leadership roles — Fintech · Wealth · B2B SaaS</div>
+    <h2>Let's talk about your product.</h2>
+    <div class="contact-links">
+      <a href="mailto:eshashidhar@gmail.com">eshashidhar@gmail.com</a>
+      <a href="tel:+919885462702">+91 98854 62702</a>
+      <a href="https://linkedin.com/in/shashidhar-enaganti">linkedin.com/in/shashidhar-enaganti</a>
+    </div>
+    <div class="foot-meta">
+      <span>© 2026 Enaganti Shashidhar</span>
+      <span>Hyderabad, India</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
